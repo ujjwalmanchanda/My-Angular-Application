@@ -1,0 +1,43 @@
+<div style="padding: 5em;">
+  <div class="row" style="display: flex; align-items: left;">
+    <div class="col-md-6" style="padding-left: 4em; padding-right: 4em;">
+      <h1>Sign Up</h1>
+      <div class="row">
+          <form (ngSubmit)="RegisterUser(UserRegistrationForm);" class="col-md-12" #UserRegistrationForm="ngForm">
+            <mat-form-field style="width: 100%;">
+              <input name="UserName" #UserName="ngModel" matInput placeholder="User Name" [(ngModel)]="user.UserName" required>
+            </mat-form-field>
+            <span class="error-block" *ngIf="UserName.touched && UserName.invalid && UserName.errors.required">User Name is required!</span>
+
+            <mat-form-field style="width: 100%;">
+              <input name="Password" #Password="ngModel" matInput placeholder="Password" [(ngModel)]="user.Password" required>
+            </mat-form-field>
+            <span class="error-block" *ngIf="Password.touched && Password.invalid && Password.errors.required">Password is required!</span>
+
+            <mat-form-field style="width: 100%;">
+              <input name="Email" #Email="ngModel" matInput placeholder="Email"  [(ngModel)]="user.Email" required email>
+            </mat-form-field>
+            <span class="error-block" *ngIf="Email.touched && Email.invalid && Email.errors.required">Email is required!</span>
+            <span class="error-block" *ngIf="Email.touched && Email.invalid && Email.errors.email">Please enter a valid Email!</span>
+
+            <mat-form-field style="width: 100%;">
+              <input name="FirstName" #FirstName="ngModel" matInput placeholder="First Name" [(ngModel)]="user.FirstName" required>
+            </mat-form-field>
+            <span class="error-block" *ngIf="FirstName.touched && FirstName.invalid && FirstName.errors.required">First Name is required!</span>
+
+            <mat-form-field style="width: 100%;">
+              <input name="LastName" #LastName="ngModel" matInput placeholder="Last Name" [(ngModel)]="user.LastName" required>
+            </mat-form-field>
+            <span class="error-block" *ngIf="LastName.touched && LastName.invalid && LastName.errors.required">Last Name is required!</span>
+            <button class="btn btn-success" [disabled]="!UserRegistrationForm.valid" type="submit" mat-raised-button>Sign Up</button>
+          </form>
+      </div>
+    </div>
+    <div style="background-image: url('../assets/images/background.jpeg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;"
+                class="col-md-6">
+    </div>
+  </div>
+</div>
